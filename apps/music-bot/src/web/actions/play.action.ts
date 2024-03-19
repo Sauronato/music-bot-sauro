@@ -48,7 +48,7 @@ export async function PlayAction(
 
       await queue.connect(channel);
     } catch {
-      socket.emit('error', 'Failed to join your voice channel.');
+      socket.emit('error', 'Error al entrar a tu canal de voz.');
       return socket.disconnect(true);
     }
   }
@@ -62,14 +62,14 @@ export async function PlayAction(
       embeds: [
         EmbedGenerator.Success({
           title: `${
-            result.searchResult.hasPlaylist() ? 'Playlist' : 'Track'
-          } queued!`,
-          description: `The ${
-            result.searchResult.hasPlaylist() ? 'playlist' : 'track'
+            result.searchResult.hasPlaylist() ? 'Playlist' : 'Canción'
+          } en cola!`,
+          description: `La ${
+            result.searchResult.hasPlaylist() ? 'playlist' : 'Canción'
           } **${
             result.searchResult.playlist?.title ||
             result.searchResult.tracks[0].title
-          }** was added to the queue by ${info.displayName} (<@${info.id}>).`,
+          }** ha sido añadida a la cola por ${info.displayName} (<@${info.id}>).`,
         }),
       ],
     });
@@ -79,6 +79,6 @@ export async function PlayAction(
       data: (result.searchResult.playlist || result.track).serialize(),
     });
   } catch {
-    return socket.emit('error', 'Failed to play that track.');
+    return socket.emit('error', 'Error al añadir a cola la canción.');
   }
 }

@@ -3,7 +3,7 @@ import { EmbedGenerator } from '#bot/utils/EmbedGenerator';
 import { PlayerEvent } from '../common/types.js';
 import { PlayerMetadata } from '../PlayerMetadata.js';
 import { io } from '#bot/web/index';
-import { DeleteEmbedTime } from '#bot/utils/constants';
+import { DeleteEmbedTime, ExitTime } from '#bot/utils/constants';
 
 export default class TrackFinishEvent
   implements PlayerEvent<typeof GuildQueueEvent.playerFinish>
@@ -25,7 +25,21 @@ export default class TrackFinishEvent
       },
     });
 
-    let message = queue.metadata.channel.send({ embeds: [embed] });
+    queue.metadata.channel.send({ embeds: [embed] });
+
+    setTimeout(async () => {
+      if(queue.currentTrack == null){
+        queue.connection?.disconnect();
+        const embed = EmbedGenerator.Info({
+          description: `Canal <#${queue.metadata.channel.id}> abandonado por inactividad :man_dancing:`,
+          title: 'Canal Abandonado',
+        });
+        let message = queue.metadata.channel.send({ embeds: [embed] });
+        setTimeout(async () => {
+          (await message).delete();
+        }, DeleteEmbedTime);
+      }
+    }, ExitTime);
 
     /*
     setTimeout(async () => {
