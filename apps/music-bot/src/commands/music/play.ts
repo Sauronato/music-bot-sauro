@@ -42,7 +42,7 @@ export async function run({ interaction }: SlashCommandProps) {
     setTimeout(() => {
       interaction.deleteReply();
     }, DeleteEmbedTime);
-    
+
     return interaction.editReply({ embeds: [embed] });
   }
 
@@ -78,7 +78,7 @@ export async function run({ interaction }: SlashCommandProps) {
     });
 
     const embed = EmbedGenerator.Info({
-      title: `${searchResult.hasPlaylist() ? 'Playlist' : 'Track'} queued!`,
+      title: `${searchResult.hasPlaylist() ? 'Playlist' : 'Canción'} en cola!`,
       thumbnail: { url: track.thumbnail },
       description: `[${track.title}](${track.url})`,
       fields: searchResult.playlist

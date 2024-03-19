@@ -36,6 +36,7 @@ export const EmbedColor = {
 } as const;
 
 export const DeleteEmbedTime = 15000 as const;
+export const ExitTime = 30000 as const;
 
 export const DiscordPlayerOptions: DiscordPlayerConfig = {
   extractorConfig: {

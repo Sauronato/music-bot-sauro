@@ -1,4 +1,4 @@
-> # Project overview
+> # Project overview from [@twlite](https://github.com/twlite/)
 
 > As a core contributor to [discord-player](https://discord-player.js.org), I've dedicated significant time and effort to this project. My familiarity with the core principles of discord-player has allowed me to incorporate many of its concepts and best practices into this project, serving as a valuable reference for library users. I've strived to ensure the project is user-friendly and intuitive. Your suggestions and feedback are always welcome - feel free to open an issue or submit a pull request.
 
@@ -54,8 +54,8 @@ This proyect was based from [forked one](https://github.com/twlite/music-bot/) a
 
 ![Web Interface](https://github.com/twlite/music-bot/blob/main/assets/image.png?raw=true)
 
-## Support me on Patreon
+## Support the creator on Patreon
 
-If you like this project, consider supporting me on Patreon. This will help me to keep working on projects like this and make them even better.
+If you like this project, consider supporting twlite on Patreon. This will help me to keep working on projects like this and make them even better.
 
 [![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/twlite)
