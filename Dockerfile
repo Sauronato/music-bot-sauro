@@ -3,13 +3,15 @@ FROM ubuntu:latest
 
 RUN adduser --disabled-password container
 RUN usermod -aG sudo container
-USER container
-ENV  USER=container HOME=/home/container
+
 
 RUN apt-get update && apt-get install -y wget curl
 
 # Cambia al directorio del repositorio
 WORKDIR /home/container/
+
+USER container
+ENV  USER=container HOME=/home/container
 
 # Instala mongodb
 RUN wget https://repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/7.0/multiverse/binary-amd64/mongodb-org-server_7.0.7_amd64.deb \
