@@ -29,9 +29,15 @@ WORKDIR /home/container/
 
 
 ENV  USER=container HOME=/home/container
-RUN chown -R $USER:$(id -gn $USER) /usr/local/lib/node_modules
-RUN chown -R $USER:$(id -gn $USER) ~/.npm
 USER container
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
+    && export NVM_DIR="$HOME/.nvm" \
+    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
+    && nvm install node && npm install -g npm@latest && npm install -g pnpm
+    
+
 # Clona el repositorio de GitHub
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git
 
