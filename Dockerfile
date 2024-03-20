@@ -31,7 +31,7 @@ USER container
 ENV  USER=container HOME=/home/container
 
 # Clona el repositorio de GitHub
-RUN git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/
+RUN git clone https://github.com/Sauronato/music-bot-sauro.git
 
 RUN groupadd -g 998 pterodactyl
 
