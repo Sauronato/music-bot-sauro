@@ -17,12 +17,6 @@ RUN wget https://repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/7.0/multive
 # Instala Git, FFmpeg y otras dependencias necesarias
 RUN apt-get install -y git ffmpeg redis-server
 
-# Instala nvm y Node.js
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
-    && nvm install node && npm install -g npm@latest && npm install -g pnpm
 
 # Cambia al directorio del repositorio
 WORKDIR /home/container/
@@ -31,15 +25,15 @@ WORKDIR /home/container/
 ENV  USER=container HOME=/home/container
 USER container
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
-    && nvm install node && npm install -g npm@latest && npm install -g pnpm
-    
+
+
 
 # Clona el repositorio de GitHub
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git
 
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
+    && export NVM_DIR="$HOME/.nvm" \
+    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
+    && nvm install node && npm install -g npm@latest && npm install -g pnpm && pnpm install --frozen-lockfile
 
-RUN pnpm install --frozen-lockfile
