@@ -26,6 +26,8 @@ RUN git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/
 # Cambia al directorio del repositorio
 WORKDIR /home/container/
 
+RUN groupadd -g 998 pterodactyl
+
 RUN export NVM_DIR="$HOME/.nvm" \
     && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
     && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
