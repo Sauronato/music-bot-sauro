@@ -34,7 +34,4 @@ ENV  USER=container HOME=/home/container
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git
 
 
-RUN export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
-    && pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
