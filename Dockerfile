@@ -1,7 +1,7 @@
 ﻿# Etapa de construcción
 FROM ubuntu:latest
 
-RUN adduser container
+RUN adduser -D container
 
 USER container
 ENV  USER=container HOME=/home/container
