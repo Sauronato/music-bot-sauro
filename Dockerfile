@@ -33,8 +33,6 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
 # Clona el repositorio de GitHub
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/
 
-
-
 RUN groupadd -g 998 pterodactyl
 
 RUN export NVM_DIR="$HOME/.nvm" \
