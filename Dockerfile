@@ -27,9 +27,11 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
 # Cambia al directorio del repositorio
 WORKDIR /home/container/
 
-USER container
-ENV  USER=container HOME=/home/container
 
+ENV  USER=container HOME=/home/container
+RUN chown -R $USER:$(id -gn $USER) /usr/local/lib/node_modules
+RUN chown -R $USER:$(id -gn $USER) ~/.npm
+USER container
 # Clona el repositorio de GitHub
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git
 
