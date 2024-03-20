@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 RUN mkdir /home/container/
 
-RUN adduser -h /home/container container
+RUN adduser container
 
 USER container
 ENV  USER=container HOME=/home/container
