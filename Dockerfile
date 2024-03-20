@@ -17,7 +17,6 @@ RUN apt-get install -y git ffmpeg redis-server
 # Cambia al directorio del repositorio
 WORKDIR /home/container/
 
-
 ENV  USER=container HOME=/home/container
 USER container
 
@@ -30,5 +29,6 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
     && export NVM_DIR="$HOME/.nvm" \
     && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
     && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
-    && nvm install node && npm install -g npm@latest && npm install -g pnpm && pnpm install --frozen-lockfile
+    && nvm install node && npm install -g npm@latest && npm install -g pnpm 
 
+CMD ['/bin/bash',"/start.sh"]
