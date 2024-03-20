@@ -21,6 +21,7 @@ ENV  USER=container HOME=/home/container
 USER container
 
 RUN touch /home/container/.bashrc
+
 # Clona el repositorio de GitHub
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
@@ -28,6 +29,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
     && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
     && nvm install node && npm install -g npm@latest && npm install -g pnpm 
 
-    
+RUN git clone git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/temporal
+
+
 
 # CMD ['/bin/bash',"/start.sh"]
