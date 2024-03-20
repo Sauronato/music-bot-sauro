@@ -1,8 +1,9 @@
 ﻿# Etapa de construcción
 FROM ubuntu:latest
 
-RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
-    && adduser --disabled-password --home /home/container container
+RUN mkdir /home/container/
+
+RUN adduser -D -h /home/container container
 
 USER container
 ENV  USER=container HOME=/home/container
@@ -27,7 +28,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
     && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
     && nvm install node && npm install -g npm@latest && npm install -g pnpm
 
-RUN mkdir /home/container/
+
 
 # Clona el repositorio de GitHub
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/
