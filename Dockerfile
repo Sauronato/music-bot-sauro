@@ -29,7 +29,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
     && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
     && nvm install node && npm install -g npm@latest && npm install -g pnpm 
 
-RUN git clone git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/temporal
+RUN git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/temporal
 
 
 
