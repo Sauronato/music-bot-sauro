@@ -3,7 +3,6 @@ FROM ubuntu:latest
 
 RUN adduser --disabled-password --uid 998 container
 RUN usermod -aG sudo container
-RUN groupadd -g 998 pterodactyl
 
 RUN apt-get update && apt-get install -y wget curl
 
