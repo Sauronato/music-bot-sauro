@@ -1,9 +1,6 @@
 ﻿# Etapa de construcción
 FROM ubuntu:latest
 
-RUN adduser --disabled-password --uid 998 container
-RUN usermod -aG sudo container
-
 
 RUN apt-get update && apt-get install -y wget curl && adduser --disabled-password --home /home/container --uid 998 container
 
