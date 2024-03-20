@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 RUN adduser --disabled-password container
-
+RUN usermod -aG sudo container
 USER container
 ENV  USER=container HOME=/home/container
 
