@@ -18,4 +18,5 @@ WORKDIR /home/container/
 ENV  USER=container HOME=/home/container
 USER container
 
+COPY ./start.sh .
 RUN touch /home/container/.bashrc
