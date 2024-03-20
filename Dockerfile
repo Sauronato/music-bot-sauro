@@ -1,7 +1,7 @@
 ﻿# Etapa de construcción
 FROM ubuntu:latest
 
-RUN adduser -D container
+RUN adduser --disabled-password container
 
 USER container
 ENV  USER=container HOME=/home/container
