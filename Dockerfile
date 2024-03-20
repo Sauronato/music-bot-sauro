@@ -24,6 +24,7 @@ USER container
 # Clona el repositorio de GitHub
 # RUN git clone https://github.com/Sauronato/music-bot-sauro.git 
 COPY .* /.
+RUN ls
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
