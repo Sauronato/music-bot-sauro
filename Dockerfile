@@ -4,7 +4,8 @@ FROM ubuntu:latest
 RUN adduser --disabled-password --uid 998 container
 RUN usermod -aG sudo container
 
-RUN apt-get update && apt-get install -y wget curl
+
+RUN apt-get update && apt-get install -y wget curl && adduser --disabled-password --home /home/container --uid 998 container
 
 
 
@@ -14,8 +15,7 @@ RUN wget https://repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/7.0/multive
     && rm mongodb-org-server_7.0.7_amd64.deb
 
 # Instala Git, FFmpeg y otras dependencias necesarias
-RUN apt-get install -y git ffmpeg redis-server
-
+RUN apt-get install -y git ffmpeg redis-server 
 
 # Cambia al directorio del repositorio
 WORKDIR /home/container/
@@ -25,10 +25,8 @@ ENV  USER=container HOME=/home/container
 USER container
 
 # Clona el repositorio de GitHub
-RUN git clone https://github.com/Sauronato/music-bot-sauro.git 
-RUN ls
-RUN  mv ~/music-bot-sauro/* ~/.
-RUN rm -rf ~/music-bot-sauro
+# RUN git clone https://github.com/Sauronato/music-bot-sauro.git 
+COPY .* /.
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
