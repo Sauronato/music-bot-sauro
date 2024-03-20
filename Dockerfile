@@ -1,8 +1,6 @@
 ﻿# Etapa de construcción
 FROM ubuntu:latest
 
-RUN mkdir /home/container/
-
 RUN adduser container
 
 USER container
