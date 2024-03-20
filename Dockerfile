@@ -1,7 +1,7 @@
 ﻿# Etapa de construcción
 FROM ubuntu:latest
 
-RUN adduser --disabled-password container
+RUN adduser --disabled-password --uid 998 container
 RUN usermod -aG sudo container
 RUN groupadd -g 998 pterodactyl
 
