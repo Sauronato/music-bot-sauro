@@ -26,9 +26,10 @@ ENV  USER=container HOME=/home/container
 USER container
 
 # Clona el repositorio de GitHub
-RUN git clone https://github.com/Sauronato/music-bot-sauro.git ~/tmp/.
+RUN git clone https://github.com/Sauronato/music-bot-sauro.git ~/tmpr/.
 
-RUN  mv ~/tmp/music-bot-sauro/* ~/.
+RUN  mv ~/tmpr/music-bot-sauro/* ~/.
+RUN rm -rf ~/tmpr
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
