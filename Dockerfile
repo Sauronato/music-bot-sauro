@@ -29,6 +29,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
 
 RUN git clone https://github.com/Sauronato/music-bot-sauro.git /home/container/temporal
 
+RUN /home/container/temporal/start.sh
+
 RUN chown -R container:container /home/container
 
 # CMD ['/bin/bash',"/start.sh"]
